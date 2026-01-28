@@ -1,0 +1,79 @@
+{
+  "common": {
+    "search": "Search",
+    "loading": "Loading",
+    "noResults": "No results found",
+    "save": "Save",
+    "cancel": "Cancel",
+    "edit": "Edit",
+    "delete": "Delete",
+    "create": "Create New",
+    "back": "Back",
+    "notFound": "Not found"
+  },
+  "sidebar": {
+    "title": "API Delay Demo",
+    "ec": "EC Site",
+    "admin": "Admin Panel",
+    "sns": "SNS"
+  },
+  "delayPanel": {
+    "title": "Delay Settings",
+    "description": "Adjust API response delay",
+    "presets": {
+      "instant": "Instant",
+      "fast": "Fast",
+      "normal": "Normal",
+      "slow": "Slow",
+      "verySlow": "Very Slow"
+    },
+    "elapsed": "Elapsed",
+    "ms": "ms",
+    "ready": "Ready"
+  },
+  "ec": {
+    "searchPlaceholder": "Search products...",
+    "addToCart": "Add to Cart",
+    "addedToCart": "Added",
+    "noProducts": "No products found",
+    "price": "${{price}}",
+    "description": "Description",
+    "descriptionText": "This product is made with high-quality materials and carefully finished by craftsmen. Perfect for everyday use or special occasions."
+  },
+  "admin": {
+    "searchPlaceholder": "Search by name or email...",
+    "columns": {
+      "id": "ID",
+      "name": "Name",
+      "email": "Email",
+      "role": "Role",
+      "status": "Status",
+      "actions": "Actions"
+    },
+    "roles": {
+      "admin": "Admin",
+      "user": "User"
+    },
+    "statuses": {
+      "active": "Active",
+      "inactive": "Inactive"
+    },
+    "editUser": "Edit User",
+    "savedMessage": "Saved successfully",
+    "showing": "{{start}}-{{end}} of {{total}}"
+  },
+  "sns": {
+    "searchPlaceholder": "Search users & hashtags...",
+    "postPlaceholder": "What's happening?",
+    "post": "Post",
+    "noMorePosts": "No more posts",
+    "comments": "Comments",
+    "noComments": "No comments yet",
+    "timeAgo": {
+      "justNow": "just now",
+      "minutes": "{{count}}m ago",
+      "hours": "{{count}}h ago",
+      "days": "{{count}}d ago"
+    }
+  }
+}

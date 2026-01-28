@@ -1,0 +1,79 @@
+{
+  "common": {
+    "search": "検索",
+    "loading": "読み込み中",
+    "noResults": "該当する結果がありません",
+    "save": "保存",
+    "cancel": "キャンセル",
+    "edit": "編集",
+    "delete": "削除",
+    "create": "新規作成",
+    "back": "戻る",
+    "notFound": "見つかりませんでした"
+  },
+  "sidebar": {
+    "title": "API Delay Demo",
+    "ec": "ECサイト",
+    "admin": "管理画面",
+    "sns": "SNS"
+  },
+  "delayPanel": {
+    "title": "遅延設定",
+    "description": "API応答の遅延時間を調整",
+    "presets": {
+      "instant": "即時",
+      "fast": "高速",
+      "normal": "通常",
+      "slow": "低速",
+      "verySlow": "超低速"
+    },
+    "elapsed": "経過時間",
+    "ms": "ms",
+    "ready": "待機中"
+  },
+  "ec": {
+    "searchPlaceholder": "商品名で検索...",
+    "addToCart": "カートに追加",
+    "addedToCart": "追加済み",
+    "noProducts": "該当する商品がありません",
+    "price": "¥{{price}}",
+    "description": "商品説明",
+    "descriptionText": "この商品は高品質な素材を使用し、職人が丁寧に仕上げました。日常使いにも、特別な日にも最適です。"
+  },
+  "admin": {
+    "searchPlaceholder": "名前またはメールで検索...",
+    "columns": {
+      "id": "ID",
+      "name": "名前",
+      "email": "メール",
+      "role": "役割",
+      "status": "状態",
+      "actions": "操作"
+    },
+    "roles": {
+      "admin": "管理者",
+      "user": "一般"
+    },
+    "statuses": {
+      "active": "有効",
+      "inactive": "無効"
+    },
+    "editUser": "ユーザー編集",
+    "savedMessage": "保存しました",
+    "showing": "{{start}}-{{end}} / {{total}}件"
+  },
+  "sns": {
+    "searchPlaceholder": "ユーザー・ハッシュタグ検索...",
+    "postPlaceholder": "新しい投稿を入力...",
+    "post": "投稿する",
+    "noMorePosts": "これ以上投稿はありません",
+    "comments": "コメント",
+    "noComments": "コメントはまだありません",
+    "timeAgo": {
+      "justNow": "たった今",
+      "minutes": "{{count}}分前",
+      "hours": "{{count}}時間前",
+      "days": "{{count}}日前"
+    }
+  }
+}
