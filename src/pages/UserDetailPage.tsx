@@ -35,23 +35,24 @@ export function UserDetailPage({ id }: UserDetailPageProps) {
   const initialLoadOperation = useDelayedOperation<void>(delay)
 
   useEffect(() => {
-    const fromNavigation = location.state?.fromDelayedNavigation === true
+    const skipInitialLoad = location.state?.skipInitialLoad === true
 
     const performInitialLoad = async () => {
-      if (!fromNavigation) {
-        setIsLoading(true)
-        await initialLoadOperation.execute(() => {
-          const foundUser = USERS.find((u) => u.id === parseInt(id, 10))
-          setUser(foundUser || null)
-        })
-      } else {
+      const loadData = () => {
         const foundUser = USERS.find((u) => u.id === parseInt(id, 10))
         setUser(foundUser || null)
       }
-      setIsPageLoading(false)
-      if (!fromNavigation) setIsLoading(false)
 
-      if (fromNavigation) {
+      if (!skipInitialLoad) {
+        setIsLoading(true)
+        await initialLoadOperation.execute(loadData)
+      } else {
+        loadData()
+      }
+      setIsPageLoading(false)
+      if (!skipInitialLoad) setIsLoading(false)
+
+      if (location.state?.fromDelayedNavigation) {
         window.history.replaceState({}, document.title)
       }
     }
@@ -92,7 +93,7 @@ export function UserDetailPage({ id }: UserDetailPageProps) {
 
   // Back navigation
   const handleBack = useCallback(() => {
-    navigate(`/${lang}/admin${location.search}`)
+    navigate(`/${lang}/admin${location.search}`, { skipInitialLoad: false })
   }, [navigate, lang, location.search])
 
   if (isPageLoading || isNavigating) {

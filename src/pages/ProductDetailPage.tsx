@@ -29,17 +29,17 @@ export function ProductDetailPage({ id }: ProductDetailPageProps) {
   const initialLoadOperation = useDelayedOperation<void>(delay)
 
   useEffect(() => {
-    const fromNavigation = location.state?.fromDelayedNavigation === true
+    const skipInitialLoad = location.state?.skipInitialLoad === true
 
     const performInitialLoad = async () => {
-      if (!fromNavigation) {
+      if (!skipInitialLoad) {
         setIsLoading(true)
         await initialLoadOperation.execute(() => {})
       }
       setIsPageLoading(false)
-      if (!fromNavigation) setIsLoading(false)
+      if (!skipInitialLoad) setIsLoading(false)
 
-      if (fromNavigation) {
+      if (location.state?.fromDelayedNavigation) {
         window.history.replaceState({}, document.title)
       }
     }
@@ -60,7 +60,7 @@ export function ProductDetailPage({ id }: ProductDetailPageProps) {
 
   // Back navigation
   const handleBack = useCallback(() => {
-    navigate(`/${lang}/ec${location.search}`)
+    navigate(`/${lang}/ec${location.search}`, { skipInitialLoad: false })
   }, [navigate, lang, location.search])
 
   if (isPageLoading || isNavigating) {

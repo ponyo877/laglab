@@ -61,17 +61,17 @@ export function AdminPage() {
   const initialLoadOperation = useDelayedOperation<void>(delay)
 
   useEffect(() => {
-    const fromNavigation = location.state?.fromDelayedNavigation === true
+    const skipInitialLoad = location.state?.skipInitialLoad === true
 
     const performInitialLoad = async () => {
-      if (!fromNavigation) {
+      if (!skipInitialLoad) {
         setIsLoading(true)
         await initialLoadOperation.execute(() => {})
       }
       setIsTableLoading(false)
-      if (!fromNavigation) setIsLoading(false)
+      if (!skipInitialLoad) setIsLoading(false)
 
-      if (fromNavigation) {
+      if (location.state?.fromDelayedNavigation) {
         window.history.replaceState({}, document.title)
       }
     }

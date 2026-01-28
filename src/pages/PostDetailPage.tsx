@@ -54,7 +54,7 @@ export function PostDetailPage({ id }: PostDetailPageProps) {
   const initialLoadOperation = useDelayedOperation<void>(delay)
 
   useEffect(() => {
-    const fromNavigation = location.state?.fromDelayedNavigation === true
+    const skipInitialLoad = location.state?.skipInitialLoad === true
 
     const performInitialLoad = async () => {
       const loadData = () => {
@@ -65,16 +65,16 @@ export function PostDetailPage({ id }: PostDetailPageProps) {
         }
       }
 
-      if (!fromNavigation) {
+      if (!skipInitialLoad) {
         setIsLoading(true)
         await initialLoadOperation.execute(loadData)
       } else {
         loadData()
       }
       setIsPageLoading(false)
-      if (!fromNavigation) setIsLoading(false)
+      if (!skipInitialLoad) setIsLoading(false)
 
-      if (fromNavigation) {
+      if (location.state?.fromDelayedNavigation) {
         window.history.replaceState({}, document.title)
       }
     }
@@ -153,7 +153,7 @@ export function PostDetailPage({ id }: PostDetailPageProps) {
 
   // Back navigation
   const handleBack = useCallback(() => {
-    navigate(`/${lang}/sns${location.search}`)
+    navigate(`/${lang}/sns${location.search}`, { skipInitialLoad: false })
   }, [navigate, lang, location.search])
 
   if (isPageLoading || isNavigating) {

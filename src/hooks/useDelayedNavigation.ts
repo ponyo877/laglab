@@ -9,10 +9,11 @@ export function useDelayedNavigation() {
   const navigateOperation = useDelayedOperation<void>(delay)
 
   const delayedNavigate = useCallback(
-    async (to: string) => {
+    async (to: string, options?: { skipInitialLoad?: boolean }) => {
+      const skipInitialLoad = options?.skipInitialLoad ?? true
       setIsLoading(true)
       await navigateOperation.execute(() => {
-        navigate(to, { state: { fromDelayedNavigation: true } })
+        navigate(to, { state: { fromDelayedNavigation: true, skipInitialLoad } })
       })
       setIsLoading(false)
     },
