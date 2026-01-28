@@ -1,5 +1,5 @@
 import { Link, useLocation } from "react-router-dom"
-import { ShoppingCart, LayoutDashboard, MessageCircle } from "lucide-react"
+import { Hourglass, ShoppingCart, LayoutDashboard, MessageCircle } from "lucide-react"
 import {
   Sidebar,
   SidebarContent,
@@ -15,7 +15,7 @@ import { Separator } from "@/components/ui/separator"
 import { useLanguage } from "@/contexts/LanguageContext"
 import type { Page } from "@/types"
 
-const navItems: { page: Page; icon: typeof ShoppingCart }[] = [
+const navItems: { page: Page; icon: typeof Hourglass }[] = [
   { page: "ec", icon: ShoppingCart },
   { page: "admin", icon: LayoutDashboard },
   { page: "sns", icon: MessageCircle },
@@ -34,7 +34,7 @@ export function AppSidebar() {
       <SidebarHeader>
         <div className="flex items-center gap-2 px-2 py-2">
           <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary text-primary-foreground">
-            <ShoppingCart className="h-4 w-4" />
+            <Hourglass className="h-4 w-4" />
           </div>
           <span className="font-semibold group-data-[collapsible=icon]:hidden">
             {t("sidebar.title")}
