@@ -1,5 +1,5 @@
 import { useState, useCallback, useEffect } from "react"
-import { useLocation } from "react-router-dom"
+import { useLocation, useNavigate } from "react-router-dom"
 import { ArrowLeft, Heart, MessageCircle, Repeat2, Loader2 } from "lucide-react"
 import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
@@ -41,7 +41,8 @@ export function PostDetailPage({ id }: PostDetailPageProps) {
   const { lang, t } = useLanguage()
   const { delay, setIsLoading } = useDelay()
   const location = useLocation()
-  const { navigate, isNavigating } = useDelayedNavigation()
+  const navigate = useNavigate()
+  const { isNavigating } = useDelayedNavigation()
 
   const [isPageLoading, setIsPageLoading] = useState(true)
   const [post, setPost] = useState<Post | null>(null)
@@ -152,8 +153,11 @@ export function PostDetailPage({ id }: PostDetailPageProps) {
   )
 
   // Back navigation
+  // Back navigation - use direct navigate to avoid navigation delay
   const handleBack = useCallback(() => {
-    navigate(`/${lang}/sns${location.search}`, { skipInitialLoad: false })
+    navigate(`/${lang}/sns${location.search}`, {
+      state: { fromDelayedNavigation: true, skipInitialLoad: false }
+    })
   }, [navigate, lang, location.search])
 
   if (isPageLoading || isNavigating) {

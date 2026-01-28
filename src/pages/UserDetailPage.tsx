@@ -1,5 +1,5 @@
 import { useState, useCallback, useEffect } from "react"
-import { useLocation } from "react-router-dom"
+import { useLocation, useNavigate } from "react-router-dom"
 import { ArrowLeft, Mail, Shield, Activity } from "lucide-react"
 import { toast } from "sonner"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
@@ -23,7 +23,8 @@ export function UserDetailPage({ id }: UserDetailPageProps) {
   const { lang, t } = useLanguage()
   const { delay, setIsLoading } = useDelay()
   const location = useLocation()
-  const { navigate, isNavigating } = useDelayedNavigation()
+  const navigate = useNavigate()
+  const { isNavigating } = useDelayedNavigation()
 
   const [isPageLoading, setIsPageLoading] = useState(true)
   const [user, setUser] = useState<User | null>(null)
@@ -91,9 +92,11 @@ export function UserDetailPage({ id }: UserDetailPageProps) {
     setEditingUser(null)
   }, [])
 
-  // Back navigation
+  // Back navigation - use direct navigate to avoid navigation delay
   const handleBack = useCallback(() => {
-    navigate(`/${lang}/admin${location.search}`, { skipInitialLoad: false })
+    navigate(`/${lang}/admin${location.search}`, {
+      state: { fromDelayedNavigation: true, skipInitialLoad: false }
+    })
   }, [navigate, lang, location.search])
 
   if (isPageLoading || isNavigating) {
