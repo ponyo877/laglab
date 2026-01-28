@@ -17,12 +17,14 @@ export function useElapsedTime(isLoading: boolean): number {
         }
       }, 10) // Update every 10ms as per requirements
     } else {
-      // Stop timing
+      // Stop timing - calculate final elapsed time immediately
+      if (startTimeRef.current !== null) {
+        setElapsed(Date.now() - startTimeRef.current)
+      }
       if (intervalRef.current !== null) {
         clearInterval(intervalRef.current)
         intervalRef.current = null
       }
-      // Keep the final elapsed time displayed
     }
 
     return () => {
