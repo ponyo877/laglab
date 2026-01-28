@@ -12,7 +12,7 @@ export function useDelayedNavigation() {
     async (to: string) => {
       setIsLoading(true)
       await navigateOperation.execute(() => {
-        navigate(to)
+        navigate(to, { state: { fromDelayedNavigation: true } })
       })
       setIsLoading(false)
     },

@@ -54,17 +54,29 @@ export function PostDetailPage({ id }: PostDetailPageProps) {
   const initialLoadOperation = useDelayedOperation<void>(delay)
 
   useEffect(() => {
+    const fromNavigation = location.state?.fromDelayedNavigation === true
+
     const performInitialLoad = async () => {
-      setIsLoading(true)
-      await initialLoadOperation.execute(() => {
+      const loadData = () => {
         const foundPost = POSTS.find((p) => p.id === parseInt(id, 10))
         setPost(foundPost || null)
         if (foundPost) {
           setComments(generateCommentsForPost(foundPost.id, foundPost.comments > 0 ? Math.min(foundPost.comments, 5) : 0))
         }
-      })
+      }
+
+      if (!fromNavigation) {
+        setIsLoading(true)
+        await initialLoadOperation.execute(loadData)
+      } else {
+        loadData()
+      }
       setIsPageLoading(false)
-      setIsLoading(false)
+      if (!fromNavigation) setIsLoading(false)
+
+      if (fromNavigation) {
+        window.history.replaceState({}, document.title)
+      }
     }
     performInitialLoad()
     // eslint-disable-next-line react-hooks/exhaustive-deps
