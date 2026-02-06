@@ -39,7 +39,7 @@ export function UserTable({ users, isLoading, onEdit, onViewDetail }: UserTableP
   }
 
   return (
-    <div className="rounded-md border">
+    <div className="rounded-xl border shadow-sm overflow-hidden">
       <Table>
         <TableHeader>
           <TableRow>
@@ -73,7 +73,7 @@ export function UserTable({ users, isLoading, onEdit, onViewDetail }: UserTableP
                   variant={user.status === "active" ? "default" : "outline"}
                   className={
                     user.status === "active"
-                      ? "bg-green-500 hover:bg-green-600"
+                      ? "bg-teal-500 hover:bg-teal-600"
                       : ""
                   }
                 >

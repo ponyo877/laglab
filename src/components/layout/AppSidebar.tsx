@@ -33,7 +33,7 @@ export function AppSidebar() {
     <Sidebar collapsible="icon">
       <SidebarHeader>
         <div className="flex items-center gap-2 px-2 py-2">
-          <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary text-primary-foreground">
+          <div className="flex h-8 w-8 items-center justify-center rounded-xl bg-primary text-primary-foreground shadow-sm">
             <Hourglass className="h-4 w-4" />
           </div>
           <span className="font-semibold group-data-[collapsible=icon]:hidden">
@@ -70,7 +70,7 @@ export function AppSidebar() {
         <div className="flex items-center justify-center gap-2 px-2 py-2 group-data-[collapsible=icon]:flex-col">
           <button
             onClick={() => setLang("jp")}
-            className={`px-2 py-1 text-sm rounded ${
+            className={`px-3 py-1 text-sm rounded-full ${
               lang === "jp"
                 ? "bg-primary text-primary-foreground"
                 : "hover:bg-accent"
@@ -81,7 +81,7 @@ export function AppSidebar() {
           <span className="text-muted-foreground group-data-[collapsible=icon]:hidden">/</span>
           <button
             onClick={() => setLang("en")}
-            className={`px-2 py-1 text-sm rounded ${
+            className={`px-3 py-1 text-sm rounded-full ${
               lang === "en"
                 ? "bg-primary text-primary-foreground"
                 : "hover:bg-accent"

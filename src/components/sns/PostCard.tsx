@@ -52,7 +52,7 @@ export function PostCard({ post, onLike, isLiking, onViewDetail }: PostCardProps
 
   return (
     <Card
-      className={onViewDetail ? "cursor-pointer hover:bg-muted/50 transition-colors" : ""}
+      className={onViewDetail ? "cursor-pointer hover:bg-muted/30 transition-all duration-200 hover:shadow-sm" : ""}
       onClick={handleCardClick}
     >
       <CardContent className="pt-6">

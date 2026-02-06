@@ -37,7 +37,7 @@ export function Header() {
   const activePreset = presets.find((p) => DELAY_PRESET_VALUES[p.key] === delay)
 
   return (
-    <header className="sticky top-0 z-10 flex h-14 items-center gap-2 border-b bg-background px-4">
+    <header className="sticky top-0 z-10 flex h-14 items-center gap-2 bg-background/80 backdrop-blur-md shadow-sm px-4">
       <SidebarTrigger className="-ml-2" />
       <Separator orientation="vertical" className="h-6" />
 
@@ -52,7 +52,7 @@ export function Header() {
             key={preset.key}
             variant={activePreset?.key === preset.key ? "default" : "outline"}
             size="sm"
-            className="h-7 px-2 text-xs"
+            className="h-7 px-3 text-xs rounded-full"
             onClick={() => setDelay(DELAY_PRESET_VALUES[preset.key])}
           >
             {preset.label}
@@ -61,7 +61,7 @@ export function Header() {
       </div>
 
       {/* Elapsed time */}
-      <div className="min-w-[70px] text-right font-mono text-sm tabular-nums">
+      <div className="min-w-[70px] text-right font-mono text-sm tabular-nums bg-muted rounded-full px-3 py-1">
         {isLoading ? (
           <span className="text-primary">{elapsed.toLocaleString()}ms</span>
         ) : (
