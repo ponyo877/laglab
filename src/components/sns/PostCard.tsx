@@ -55,7 +55,7 @@ export function PostCard({ post, onLike, isLiking, onViewDetail }: PostCardProps
       className={onViewDetail ? "cursor-pointer hover:bg-muted/30 transition-all duration-200 hover:shadow-sm" : ""}
       onClick={handleCardClick}
     >
-      <CardContent className="pt-6">
+      <CardContent>
         <div className="flex gap-4">
           <Avatar>
             <AvatarImage src={post.user.avatar} alt={userName} />

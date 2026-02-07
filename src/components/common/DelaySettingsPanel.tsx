@@ -24,7 +24,7 @@ export function DelaySettingsPanel({ className }: DelaySettingsPanelProps) {
 
   return (
     <Card className={cn("", className)}>
-      <CardContent className="pt-6">
+      <CardContent>
         {/* Preset buttons */}
         <div className="flex flex-wrap gap-2 mb-4">
           {presets.map((preset) => (

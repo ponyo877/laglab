@@ -37,7 +37,7 @@ export function ProductCard({
 
   return (
     <Card
-      className={`overflow-hidden transition-all duration-200 hover:shadow-xl hover:scale-[1.02] ${onViewDetail ? "cursor-pointer" : ""}`}
+      className={`overflow-hidden py-0 gap-0 transition-all duration-200 hover:shadow-xl hover:scale-[1.02] ${onViewDetail ? "cursor-pointer" : ""}`}
       onClick={handleCardClick}
     >
       <CardContent className="p-0">

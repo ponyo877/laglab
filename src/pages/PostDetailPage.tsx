@@ -190,7 +190,7 @@ export function PostDetailPage({ id }: PostDetailPageProps) {
       </Button>
 
       <Card>
-        <CardContent className="pt-6 space-y-4">
+        <CardContent className="space-y-4">
           <div className="flex gap-4">
             <Avatar className="h-12 w-12">
               <AvatarImage src={post.user.avatar} alt={userName} />
@@ -252,7 +252,7 @@ export function PostDetailPage({ id }: PostDetailPageProps) {
       </Card>
 
       <Card>
-        <CardContent className="pt-6">
+        <CardContent>
           <h3 className="font-semibold mb-4">{t("sns.comments")}</h3>
           {comments.length > 0 ? (
             <div>

@@ -62,7 +62,7 @@ export function EditUserModal({
           <DialogTitle>{t("admin.editUser")}</DialogTitle>
         </DialogHeader>
 
-        <div className="grid gap-4 py-4">
+        <div className="grid gap-4">
           <div className="grid gap-2">
             <Label htmlFor="name">{t("admin.columns.name")}</Label>
             <Input

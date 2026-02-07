@@ -73,7 +73,7 @@ export function UserTable({ users, isLoading, onEdit, onViewDetail }: UserTableP
                   variant={user.status === "active" ? "default" : "outline"}
                   className={
                     user.status === "active"
-                      ? "bg-teal-500 hover:bg-teal-600"
+                      ? "bg-primary text-primary-foreground hover:bg-primary/90"
                       : ""
                   }
                 >

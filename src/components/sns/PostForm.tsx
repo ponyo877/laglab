@@ -27,7 +27,7 @@ export function PostForm({
 
   return (
     <Card>
-      <CardContent className="pt-6">
+      <CardContent>
         <Textarea
           placeholder={t("sns.postPlaceholder")}
           value={value}
